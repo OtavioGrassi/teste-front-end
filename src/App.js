@@ -3,6 +3,14 @@ import ProductCard from '../src/components/ProductCard';
 import ShieldCheck from './assets/ShieldCheck.png'
 import Truck from './assets/Truck.png'
 import CreditCard from './assets/CreditCard.png'
+import Logo from './assets/Logo.png'
+import Vector from './assets/Vector.png'
+import Heart from './assets/Heart.png'
+import UserCircle from './assets/UserCircle.png'
+import ShoppingCart from './assets/ShoppingCart.png'
+import TrustInfo from './components/TrustInfo';
+import CrownSimple from './assets/CrownSimple.png'
+import BlackFriday from './assets/BlackFriday.jpg'
 
 function App() {
   const [produtos, setProdutos] = useState([]);
@@ -32,26 +40,55 @@ function App() {
   if (error) return <p>Erro: {error.message}</p>;
 
   return (
-    <main className="app">
+    <main className='app'>
       <header>
         <section className='header-infos'>
-          <div className='trust-info'>
-            <img className='trust-images' src={ShieldCheck} />
-            <p className='trust-messages'>Compra<span className='trust-messages-span'> 100% segura</span></p>
-          </div>
-          <div className='trust-info'>
-            <img className='trust-images' src={Truck} />
-            <p className='trust-messages'><span className='trust-messages-span'>Frete grátis</span> acima de R$200</p>
-          </div>
-          <div className='trust-info'>
-            <img className='trust-images' src={CreditCard} />
-            <p className='trust-messages'><span className='trust-messages-span'>Parcele</span> suas compras</p>
-          </div>
+          <TrustInfo
+            image={ShieldCheck}
+            text='Compra'
+            highlight='100% segura'
+            alt='Ícone de segurança'
+          />
+          <TrustInfo
+            image={Truck}
+            text='Frete grátis'
+            highlight='acima de R$200'
+            alt='Ícone de frete grátis'
+          />
+          <TrustInfo
+            image={CreditCard}
+            text='Parcele'
+            highlight='suas compras'
+            alt='Ícone de cartão de crédito'
+          />
         </section>
         <div className='line'></div>
-        <h1>Lista de Produtos</h1>
+        <section className='header-search'>
+          <img src={Logo} />
+          <input className='search-bar'
+            type='text'
+            placeholder='O que você está buscando?'
+            aria-label='Barra pesquisar produtos'
+          />
+          <div className='icons-header'>
+            <img className='img-icons-header' src={Vector} alt='Ícone de pedidos' />
+            <img className='img-icons-header' src={Heart} alt='Ícone de produtos salvos' />
+            <img className='img-icons-header' src={UserCircle} alt='Ícone de perfil' />
+            <img className='img-icons-header' src={ShoppingCart} alt='Ícone de carrinho de compras' />
+          </div>
+        </section>
       </header>
-      <section className="product-list" aria-label="Lista de produtos disponíveis">
+      <section className='tabs'> 
+        <p>TODAS AS CATEGORIAS</p>
+        <p>SUPERMERCADO</p>
+        <p>LIVROS</p>
+        <p>MODA</p>
+        <p>LANÇAMENTOS</p>
+        <p>OFERTAS DO DIA</p>
+        <div className='tabs-subscribe'><img className='img-subscribe' src={CrownSimple}/><p>ASSINATURA</p></div>
+      </section>
+      <section className='banner-promotions'></section>
+      <section className='product-list' aria-label='Lista de produtos disponíveis'>
         {produtos.map((produto, index) => (
           <ProductCard key={index} produto={produto} />
         ))}
