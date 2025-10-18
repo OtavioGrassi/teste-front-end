@@ -11,6 +11,14 @@ import ShoppingCart from './assets/ShoppingCart.png'
 import TrustInfo from './components/TrustInfo';
 import CrownSimple from './assets/CrownSimple.png'
 import MagnifyingGlass from './assets/MagnifyingGlass.png'
+import Categories from './components/Categories';
+import Technology from './assets/Technology.png';
+import Supermercados from './assets/Supermercados.png';
+import Whiskey from './assets/Whiskey.png';
+import Tools from './assets/Tools.png';
+import Health from './assets/Health.png';
+import Sports from './assets/Sports.png';
+import Fashion from './assets/Fashion.png';
 
 function App() {
   const [produtos, setProdutos] = useState([]);
@@ -92,9 +100,53 @@ function App() {
         <div className='tabs-subscribe'><img className='img-subscribe' src={CrownSimple} /><p>ASSINATURA</p></div>
       </section>
       <section className='banner-promotions'>
-        <h2 className='promotional-tittle'>Venha conhecer nossas <br/>promoções</h2>
+        <h2 className='promotional-tittle'>Venha conhecer nossas <br />promoções</h2>
         <p className='promotional-phrase'><span className='promotional-phrase-highlight '>50% off</span> nos produtos</p>
         <button className='button-promotional'>Ver produto</button>
+      </section>
+      <section className='section-categories'>
+        <Categories
+          image={Technology}
+          text='Tecnologia'
+          alt='Ícone de tecnologia'
+          highlight={true}
+          tittleColor={true}
+        />
+        <Categories
+          image={Supermercados}
+          text='Supermercados'
+          alt='Ícone de supermercados'
+        />
+        <Categories
+          image={Whiskey}
+          text='Bebidas'
+          alt='Ícone de bebidas'
+        />
+        <Categories
+          image={Tools}
+          text='Ferramentas'
+          alt='Ícone de ferramentas'
+        />
+        <Categories
+          image={Health}
+          text='Saúde'
+          alt='Ícone de saúde'
+        />
+        <Categories
+          image={Sports}
+          text='Esporte'
+          alt='Ícone de esporte'
+        />
+        <Categories
+          image={Fashion}
+          text='Moda'
+          alt='Ícone de moda'
+        />
+      </section>
+      <section className='related-products'>
+        <div className='line-secundary'></div>
+        <h2 className='related-products-tittle'>Produtos relacionados</h2>
+        <div className='line-secundary'></div>
       </section>
       <section className='product-list' aria-label='Lista de produtos disponíveis'>
         {produtos.map((produto, index) => (
