@@ -10,7 +10,7 @@ import UserCircle from './assets/UserCircle.png'
 import ShoppingCart from './assets/ShoppingCart.png'
 import TrustInfo from './components/TrustInfo';
 import CrownSimple from './assets/CrownSimple.png'
-import BlackFriday from './assets/BlackFriday.jpg'
+import MagnifyingGlass from './assets/MagnifyingGlass.png'
 
 function App() {
   const [produtos, setProdutos] = useState([]);
@@ -65,11 +65,15 @@ function App() {
         <div className='line'></div>
         <section className='header-search'>
           <img src={Logo} />
-          <input className='search-bar'
-            type='text'
-            placeholder='O que você está buscando?'
-            aria-label='Barra pesquisar produtos'
-          />
+          <div className='search-wrapper'>
+            <input
+              className='search-bar'
+              type='text'
+              placeholder='O que você está buscando?'
+              aria-label='Barra pesquisar produtos'
+            />
+            <img src={MagnifyingGlass} alt='Ícone de lupa' className='search-icon' />
+          </div>
           <div className='icons-header'>
             <img className='img-icons-header' src={Vector} alt='Ícone de pedidos' />
             <img className='img-icons-header' src={Heart} alt='Ícone de produtos salvos' />
@@ -78,16 +82,20 @@ function App() {
           </div>
         </section>
       </header>
-      <section className='tabs'> 
+      <section className='tabs'>
         <p>TODAS AS CATEGORIAS</p>
         <p>SUPERMERCADO</p>
         <p>LIVROS</p>
         <p>MODA</p>
         <p>LANÇAMENTOS</p>
         <p>OFERTAS DO DIA</p>
-        <div className='tabs-subscribe'><img className='img-subscribe' src={CrownSimple}/><p>ASSINATURA</p></div>
+        <div className='tabs-subscribe'><img className='img-subscribe' src={CrownSimple} /><p>ASSINATURA</p></div>
       </section>
-      <section className='banner-promotions'></section>
+      <section className='banner-promotions'>
+        <h2 className='promotional-tittle'>Venha conhecer nossas <br/>promoções</h2>
+        <p className='promotional-phrase'><span className='promotional-phrase-highlight '>50% off</span> nos produtos</p>
+        <button className='button-promotional'>Ver produto</button>
+      </section>
       <section className='product-list' aria-label='Lista de produtos disponíveis'>
         {produtos.map((produto, index) => (
           <ProductCard key={index} produto={produto} />
