@@ -4,9 +4,13 @@ function ProductCard({ produto }) {
   return (
     <article className='card'>
       <img src={produto.photo} alt={produto.productName} className='card-image' />
-      <h2>{produto.productName}</h2>
-      <p>{produto.descriptionShort}</p>
-      <p className='price'>R$ {produto.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+      <div className='product-infos'>
+        <p className='tittle-product'>{produto.productName}</p>
+        <p className='discount-product'>R$30,00</p>
+        <p className='price'>R$ {produto.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+        <p className='credit-card'>ou 2x de 49,95 sem juros</p>
+        <p className='free-delivery'>Frete grátis</p>
+      </div>
       <button className='buy-button'>Comprar</button>
     </article>
   );

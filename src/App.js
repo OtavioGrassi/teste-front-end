@@ -19,11 +19,16 @@ import Tools from './assets/Tools.png';
 import Health from './assets/Health.png';
 import Sports from './assets/Sports.png';
 import Fashion from './assets/Fashion.png';
+import Tags from './components/Tags';
+import Left from './assets/Left.png';
+import Right from './assets/Right.png';
 
 function App() {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [startIndex, setStartIndex] = useState(0);
+  const itemsPerPage = 4;
 
   useEffect(() => {
     // Acessa a API fornecida para o teste. Tive de adicionar um proxy em meu package.json pois o CORS estava bloqueado o acesso da API.
@@ -43,6 +48,18 @@ function App() {
         setLoading(false);
       });
   }, []);
+
+  const nextSlide = () => {
+    if (startIndex + itemsPerPage < produtos.length) {
+      setStartIndex(startIndex + itemsPerPage);
+    }
+  };
+
+  const prevSlide = () => {
+    if (startIndex > 0) {
+      setStartIndex(startIndex - itemsPerPage);
+    }
+  };
 
   if (loading) return <p>Carregando...</p>;
   if (error) return <p>Erro: {error.message}</p>;
@@ -148,10 +165,46 @@ function App() {
         <h2 className='related-products-tittle'>Produtos relacionados</h2>
         <div className='line-secundary'></div>
       </section>
-      <section className='product-list' aria-label='Lista de produtos disponíveis'>
-        {produtos.map((produto, index) => (
-          <ProductCard key={index} produto={produto} />
-        ))}
+      <section className='tags-wrapper'>
+        <Tags
+          text='CELULAR'
+          tittleColor={true} 
+        />
+        <Tags
+          text='ACESSÓRIOS'
+        />
+        <Tags
+          text='TABLETS'
+        />
+        <Tags
+          text='NOTEBOOKS'
+        />
+        <Tags
+          text='TVS'
+        />
+        <Tags
+          text='VER TODOS'
+        />
+      </section>
+      <section className='carousel-wrapper' aria-label='Carrossel de produtos'>
+        <button className='carousel-button left' onClick={prevSlide} disabled={startIndex === 0}><img src={Left} />
+        </button>
+
+        <div className='carousel-container'>
+          <div
+            className='carousel-track'
+            style={{
+              transform: `translateX(-${startIndex * (304 + 20)}px)`,
+            }}
+          >
+            {produtos.map((produto, index) => (
+              <ProductCard key={index} produto={produto} />
+            ))}
+          </div>
+        </div>
+
+        <button className='carousel-button right' onClick={nextSlide} disabled={startIndex + itemsPerPage >= produtos.length}><img src={Right} />
+        </button>
       </section>
     </main>
   );
