@@ -11,7 +11,7 @@ function ProductCard({ produto }) {
         <p className='credit-card'>ou 2x de 49,95 sem juros</p>
         <p className='free-delivery'>Frete grátis</p>
       </div>
-      <button className='buy-button'>Comprar</button>
+      <button className='buy-button'>COMPRAR</button>
     </article>
   );
 }

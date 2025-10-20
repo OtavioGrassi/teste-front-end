@@ -22,13 +22,15 @@ import Fashion from './assets/Fashion.png';
 import Tags from './components/Tags';
 import Left from './assets/Left.png';
 import Right from './assets/Right.png';
+import Partners from './components/Partners';
+import Brands from './components/Brands';
+import ProductCarousel from './components/ProductCarousel';
+import RelatedTittle from './components/RelatedTittle';
 
 function App() {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [startIndex, setStartIndex] = useState(0);
-  const itemsPerPage = 4;
 
   useEffect(() => {
     // Acessa a API fornecida para o teste. Tive de adicionar um proxy em meu package.json pois o CORS estava bloqueado o acesso da API.
@@ -49,23 +51,11 @@ function App() {
       });
   }, []);
 
-  const nextSlide = () => {
-    if (startIndex + itemsPerPage < produtos.length) {
-      setStartIndex(startIndex + itemsPerPage);
-    }
-  };
-
-  const prevSlide = () => {
-    if (startIndex > 0) {
-      setStartIndex(startIndex - itemsPerPage);
-    }
-  };
-
   if (loading) return <p>Carregando...</p>;
   if (error) return <p>Erro: {error.message}</p>;
 
   return (
-    <main className='app'>
+    <>
       <header>
         <section className='header-infos'>
           <TrustInfo
@@ -107,107 +97,129 @@ function App() {
           </div>
         </section>
       </header>
-      <section className='tabs'>
-        <p>TODAS AS CATEGORIAS</p>
-        <p>SUPERMERCADO</p>
-        <p>LIVROS</p>
-        <p>MODA</p>
-        <p>LANÇAMENTOS</p>
-        <p>OFERTAS DO DIA</p>
-        <div className='tabs-subscribe'><img className='img-subscribe' src={CrownSimple} /><p>ASSINATURA</p></div>
-      </section>
-      <section className='banner-promotions'>
-        <h2 className='promotional-tittle'>Venha conhecer nossas <br />promoções</h2>
-        <p className='promotional-phrase'><span className='promotional-phrase-highlight '>50% off</span> nos produtos</p>
-        <button className='button-promotional'>Ver produto</button>
-      </section>
-      <section className='section-categories'>
-        <Categories
-          image={Technology}
-          text='Tecnologia'
-          alt='Ícone de tecnologia'
-          highlight={true}
-          tittleColor={true}
-        />
-        <Categories
-          image={Supermercados}
-          text='Supermercados'
-          alt='Ícone de supermercados'
-        />
-        <Categories
-          image={Whiskey}
-          text='Bebidas'
-          alt='Ícone de bebidas'
-        />
-        <Categories
-          image={Tools}
-          text='Ferramentas'
-          alt='Ícone de ferramentas'
-        />
-        <Categories
-          image={Health}
-          text='Saúde'
-          alt='Ícone de saúde'
-        />
-        <Categories
-          image={Sports}
-          text='Esporte'
-          alt='Ícone de esporte'
-        />
-        <Categories
-          image={Fashion}
-          text='Moda'
-          alt='Ícone de moda'
-        />
-      </section>
-      <section className='related-products'>
-        <div className='line-secundary'></div>
-        <h2 className='related-products-tittle'>Produtos relacionados</h2>
-        <div className='line-secundary'></div>
-      </section>
-      <section className='tags-wrapper'>
-        <Tags
-          text='CELULAR'
-          tittleColor={true} 
-        />
-        <Tags
-          text='ACESSÓRIOS'
-        />
-        <Tags
-          text='TABLETS'
-        />
-        <Tags
-          text='NOTEBOOKS'
-        />
-        <Tags
-          text='TVS'
-        />
-        <Tags
-          text='VER TODOS'
-        />
-      </section>
-      <section className='carousel-wrapper' aria-label='Carrossel de produtos'>
-        <button className='carousel-button left' onClick={prevSlide} disabled={startIndex === 0}><img src={Left} />
-        </button>
-
-        <div className='carousel-container'>
-          <div
-            className='carousel-track'
-            style={{
-              transform: `translateX(-${startIndex * (304 + 20)}px)`,
-            }}
-          >
-            {produtos.map((produto, index) => (
-              <ProductCard key={index} produto={produto} />
-            ))}
-          </div>
-        </div>
-
-        <button className='carousel-button right' onClick={nextSlide} disabled={startIndex + itemsPerPage >= produtos.length}><img src={Right} />
-        </button>
-      </section>
-    </main>
+      <main className='app'>
+        <section className='tabs'>
+          <p>TODAS AS CATEGORIAS</p>
+          <p>SUPERMERCADO</p>
+          <p>LIVROS</p>
+          <p>MODA</p>
+          <p>LANÇAMENTOS</p>
+          <p>OFERTAS DO DIA</p>
+          <div className='tabs-subscribe'><img className='img-subscribe' src={CrownSimple} /><p>ASSINATURA</p></div>
+        </section>
+        <section className='banner-promotions'>
+          <h2 className='promotional-tittle'>Venha conhecer nossas <br />promoções</h2>
+          <p className='promotional-phrase'><span className='promotional-phrase-highlight '>50% off</span> nos produtos</p>
+          <button className='button-promotional'>Ver produto</button>
+        </section>
+        <section className='section-categories'>
+          <Categories
+            image={Technology}
+            text='Tecnologia'
+            alt='Ícone de tecnologia'
+            highlight={true}
+            tittleColor={true}
+          />
+          <Categories
+            image={Supermercados}
+            text='Supermercados'
+            alt='Ícone de supermercados'
+          />
+          <Categories
+            image={Whiskey}
+            text='Bebidas'
+            alt='Ícone de bebidas'
+          />
+          <Categories
+            image={Tools}
+            text='Ferramentas'
+            alt='Ícone de ferramentas'
+          />
+          <Categories
+            image={Health}
+            text='Saúde'
+            alt='Ícone de saúde'
+          />
+          <Categories
+            image={Sports}
+            text='Esporte'
+            alt='Ícone de esporte'
+          />
+          <Categories
+            image={Fashion}
+            text='Moda'
+            alt='Ícone de moda'
+          />
+        </section>
+        <RelatedTittle
+          hidden={true} />
+        <section className='tags-wrapper'>
+          <Tags
+            text='CELULAR'
+            tittleColor={true}
+          />
+          <Tags
+            text='ACESSÓRIOS'
+          />
+          <Tags
+            text='TABLETS'
+          />
+          <Tags
+            text='NOTEBOOKS'
+          />
+          <Tags
+            text='TVS'
+          />
+          <Tags
+            text='VER TODOS'
+          />
+        </section>
+        <ProductCarousel produtos={produtos} />
+        <section className='partners-section'>
+          <Partners />
+          <Partners />
+        </section>
+        <RelatedTittle
+          hidden={false} />
+        <ProductCarousel produtos={produtos} />
+        <section className='partners-section'>
+          <Partners />
+          <Partners />
+        </section>
+        <section className='brands'>
+          <h2 className='brands-tittle'>Navegue por marcas</h2>
+          <article className='brands-wrapper'>
+            <Brands />
+            <Brands />
+            <Brands />
+            <Brands />
+            <Brands />
+          </article>
+        </section>
+        <RelatedTittle
+          hidden={false} />
+        <ProductCarousel produtos={produtos} />
+      </main>
+      <footer>
+        <section className='newsletter'>
+          <article className='newsletter-info'>
+            <h2 className='tittle-newsletter'>Inscreva-se na nossa newsletter</h2>
+            <p className='text-newsletter'>Assine a nossa newsletter e receba as novidades e conteúdos exclusivos <br/> da Econverse.</p>
+          </article>
+          <article className='newsletter-form'>
+            <div className='input-data'>
+              <input className='input-newsletter' type='text' placeholder='Digite seu nome' aria-label='Caixa para digitar seu nome'></input>
+              <input className='input-newsletter' type='text' placeholder='Digite seu e-mail' aria-label='Caixa para digitar seu email'></input>
+              <button className='newsletter-btn'>INSCREVER</button>
+            </div>
+            <div className='checkbox-newsletter'>
+              <input type='checkbox'></input>
+              <p>Aceito os termos e condições</p>
+            </div>
+          </article>
+        </section>
+      </footer>
+    </>
   );
 }
-
 export default App;
