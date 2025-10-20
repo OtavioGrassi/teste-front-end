@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ProductCard from '../src/components/ProductCard';
 import ShieldCheck from './assets/ShieldCheck.png'
 import Truck from './assets/Truck.png'
 import CreditCard from './assets/CreditCard.png'
@@ -20,12 +19,13 @@ import Health from './assets/Health.png';
 import Sports from './assets/Sports.png';
 import Fashion from './assets/Fashion.png';
 import Tags from './components/Tags';
-import Left from './assets/Left.png';
-import Right from './assets/Right.png';
 import Partners from './components/Partners';
 import Brands from './components/Brands';
 import ProductCarousel from './components/ProductCarousel';
 import RelatedTittle from './components/RelatedTittle';
+import instagram from './assets/instagram.png'
+import facebook from './assets/facebook.png'
+import linkedin from './assets/linkedin.png'
 
 function App() {
   const [produtos, setProdutos] = useState([]);
@@ -204,7 +204,7 @@ function App() {
         <section className='newsletter'>
           <article className='newsletter-info'>
             <h2 className='tittle-newsletter'>Inscreva-se na nossa newsletter</h2>
-            <p className='text-newsletter'>Assine a nossa newsletter e receba as novidades e conteúdos exclusivos <br/> da Econverse.</p>
+            <p className='text-newsletter'>Assine a nossa newsletter e receba as novidades e conteúdos exclusivos <br /> da Econverse.</p>
           </article>
           <article className='newsletter-form'>
             <div className='input-data'>
@@ -218,6 +218,39 @@ function App() {
             </div>
           </article>
         </section>
+        <section className='footer'>
+          <article>
+            <img src={Logo} />
+            <p>Lorem ipsum dolor sit amet, consectetur <br/>adipiscing elit.</p>
+            <div className='footer-icons'>
+              <img src={instagram} />
+              <img src={facebook}/>
+              <img src={linkedin}/>
+            </div>
+          </article>
+          <div className='footer-line'></div>
+          <article className='articles-footer'>
+            <div>
+              <h3 className='tittle-articles'>Institucional</h3>
+              <p className='text-articles'>Sobre Nós</p>
+              <p className='text-articles'>Trabalhe conosco</p>
+              <p className='text-articles'>Movimento</p>
+            </div>
+            <div>
+              <h3 className='tittle-articles'>Ajuda</h3>
+              <p className='text-articles'>Suporte</p>
+              <p className='text-articles'>Fale conosco</p>
+              <p className='text-articles'>Perguntas Frequentes</p>
+            </div>
+            <div>
+              <h3 className='tittle-articles'>Termos</h3>
+              <p className='text-articles'>Termos e condições</p>
+              <p className='text-articles'>Política de Privacidade</p>
+              <p className='text-articles'>Troca e devolução</p>
+            </div>
+          </article>
+        </section>
+        <p className='copyright'>Desenvolvido por Otávio Grassi.</p>
       </footer>
     </>
   );
