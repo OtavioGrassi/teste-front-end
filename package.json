@@ -11,8 +11,7 @@
     "react-dom": "^19.2.0",
     "react-scripts": "5.0.1",
     "sass": "^1.93.2",
-    "web-vitals": "^2.1.4",
-    "proxy": "https://app.econverse.com.br"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,5 +38,4 @@
       "last 1 safari version"
     ]
   }
-  
 }

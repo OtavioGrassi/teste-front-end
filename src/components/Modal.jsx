@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../src/Modal.scss';
+import '../styles/Modal.scss';
 import ReactDOM from 'react-dom';
 
 const Modal = ({ isOpen, onClose, children }) => {
