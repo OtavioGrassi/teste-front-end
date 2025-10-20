@@ -99,12 +99,12 @@ function App() {
       </header>
       <main className='app'>
         <section className='tabs'>
-          <p>TODAS AS CATEGORIAS</p>
+          <p>TODAS CATEGORIAS</p>
           <p>SUPERMERCADO</p>
           <p>LIVROS</p>
           <p>MODA</p>
           <p>LANÇAMENTOS</p>
-          <p>OFERTAS DO DIA</p>
+          <p className='tab-highlight'>OFERTAS DO DIA</p>
           <div className='tabs-subscribe'><img className='img-subscribe' src={CrownSimple} /><p>ASSINATURA</p></div>
         </section>
         <section className='banner-promotions'>
@@ -122,7 +122,7 @@ function App() {
           />
           <Categories
             image={Supermercados}
-            text='Supermercados'
+            text='Supermercado'
             alt='Ícone de supermercados'
           />
           <Categories
@@ -142,7 +142,7 @@ function App() {
           />
           <Categories
             image={Sports}
-            text='Esporte'
+            text='Esportes e Fitness'
             alt='Ícone de esporte'
           />
           <Categories
@@ -221,7 +221,7 @@ function App() {
         <section className='footer'>
           <article>
             <img src={Logo} />
-            <p>Lorem ipsum dolor sit amet, consectetur <br/>adipiscing elit.</p>
+            <p className='footer-phrase'>Lorem ipsum dolor sit amet, consectetur <br/>adipiscing elit.</p>
             <div className='footer-icons'>
               <img src={instagram} />
               <img src={facebook}/>
@@ -233,8 +233,8 @@ function App() {
             <div>
               <h3 className='tittle-articles'>Institucional</h3>
               <p className='text-articles'>Sobre Nós</p>
-              <p className='text-articles'>Trabalhe conosco</p>
               <p className='text-articles'>Movimento</p>
+              <p className='text-articles'>Trabalhe conosco</p>
             </div>
             <div>
               <h3 className='tittle-articles'>Ajuda</h3>
@@ -246,7 +246,7 @@ function App() {
               <h3 className='tittle-articles'>Termos</h3>
               <p className='text-articles'>Termos e condições</p>
               <p className='text-articles'>Política de Privacidade</p>
-              <p className='text-articles'>Troca e devolução</p>
+              <p className='text-articles'>Troca e Devolução</p>
             </div>
           </article>
         </section>
