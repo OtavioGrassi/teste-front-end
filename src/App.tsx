@@ -79,7 +79,7 @@ function App() {
         </section>
         <div className='line'></div>
         <section className='header-search'>
-          <img src={Logo} />
+          <img src={Logo} alt='Logo econverse' />
           <div className='search-wrapper'>
             <input
               className='search-bar'
@@ -105,7 +105,7 @@ function App() {
           <p>MODA</p>
           <p>LANÇAMENTOS</p>
           <p className='tab-highlight'>OFERTAS DO DIA</p>
-          <div className='tabs-subscribe'><img className='img-subscribe' src={CrownSimple} /><p>ASSINATURA</p></div>
+          <div className='tabs-subscribe'><img className='img-subscribe' src={CrownSimple} alt='Ícone coroa assinatura' /><p>ASSINATURA</p></div>
         </section>
         <section className='banner-promotions'>
           <h2 className='promotional-tittle'>Venha conhecer nossas <br />promoções</h2>
@@ -208,19 +208,19 @@ function App() {
               <button className='newsletter-btn'>INSCREVER</button>
             </div>
             <div className='checkbox-newsletter'>
-              <input type='checkbox'></input>
+              <input type='checkbox' aria-label='Checkbox'></input>
               <p>Aceito os termos e condições</p>
             </div>
           </article>
         </section>
         <section className='footer'>
           <article>
-            <img src={Logo} />
+            <img src={Logo} alt='Logo econverse'/>
             <p className='footer-phrase'>Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit.</p>
             <div className='footer-icons'>
-              <img src={instagram} />
-              <img src={facebook} />
-              <img src={linkedin} />
+              <img src={instagram} alt='Ícone instagram' />
+              <img src={facebook} alt='Ícone facebook' />
+              <img src={linkedin} alt='Ícone linkedin' />
             </div>
           </article>
           <div className='footer-line'></div>

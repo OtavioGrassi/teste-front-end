@@ -14,7 +14,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     return ReactDOM.createPortal(
         <section className="modal-overlay" onClick={onClose}>
             <section className="modal" onClick={(e) => e.stopPropagation()}>
-                <button className="close-button" onClick={onClose}>×</button>
+                <button className="close-button" aria-label='Botão fechar modal' onClick={onClose}>×</button>
                 <section className="modal-content">{children}</section>
             </section>
         </section>,

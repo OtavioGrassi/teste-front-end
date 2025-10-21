@@ -48,9 +48,9 @@ function ProductCard({ produto }: ProductCardProps) {
           </div>
           <section className='amount-buy'>
             <div className="quantity-box">
-              <button className="btn" onClick={decrease}>-</button>
+              <button className="btn" aria-label='Botão remover unidade' onClick={decrease}>-</button>
               <span className="quantity">{String(quantity).padStart(2, '0')}</span>
-              <button className="btn" onClick={increase}>+</button>
+              <button className="btn" aria-label='Botão adicionar unidade' onClick={increase}>+</button>
             </div>
             <button className='modal-buy'>COMPRAR</button>
           </section>
