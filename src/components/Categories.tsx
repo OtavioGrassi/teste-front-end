@@ -1,6 +1,14 @@
 import React from 'react'
 
-const Categories = ({ image, text, alt, highlight, tittleColor }) => {
+interface CategoriesProps {
+  image: string;
+  alt: string;
+  text: string;
+  highlight?: boolean;
+  tittleColor?: boolean;
+}
+
+const Categories: React.FC<CategoriesProps> = ({ image, alt, text, highlight = false, tittleColor = false }) => {
   return (
     <article className='categories'>
       <div className={`card-categories ${highlight ? 'highlight-bg' : ''}`}>

@@ -1,6 +1,13 @@
 import React from 'react';
 
-function TrustInfo({ image, text, highlight, alt }) {
+interface TrustInfoProps {
+  image: string;
+  alt: string;
+  text: string;
+  highlight: string;
+}
+
+const TrustInfo: React.FC<TrustInfoProps> = ({ image, alt, text, highlight }) => {
   return (
     <div className='trust-info'>
       <img className='trust-images' src={image} alt={alt} />

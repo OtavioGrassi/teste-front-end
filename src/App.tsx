@@ -30,7 +30,7 @@ import linkedin from './assets/linkedin.png'
 function App() {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     // Acessa a API fornecida para o teste. Tive de adicionar um proxy em meu package.json pois o CORS estava bloqueado o acesso da API.
@@ -159,20 +159,15 @@ function App() {
             tittleColor={true}
           />
           <Tags
-            text='ACESSÓRIOS'
-          />
+            text='ACESSÓRIOS' tittleColor={false} />
           <Tags
-            text='TABLETS'
-          />
+            text='TABLETS' tittleColor={false} />
           <Tags
-            text='NOTEBOOKS'
-          />
+            text='NOTEBOOKS' tittleColor={false} />
           <Tags
-            text='TVS'
-          />
+            text='TVS' tittleColor={false} />
           <Tags
-            text='VER TODOS'
-          />
+            text='VER TODOS' tittleColor={false} />
         </section>
         <ProductCarousel produtos={produtos} />
         <section className='partners-section'>
@@ -221,11 +216,11 @@ function App() {
         <section className='footer'>
           <article>
             <img src={Logo} />
-            <p className='footer-phrase'>Lorem ipsum dolor sit amet, consectetur <br/>adipiscing elit.</p>
+            <p className='footer-phrase'>Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit.</p>
             <div className='footer-icons'>
               <img src={instagram} />
-              <img src={facebook}/>
-              <img src={linkedin}/>
+              <img src={facebook} />
+              <img src={linkedin} />
             </div>
           </article>
           <div className='footer-line'></div>

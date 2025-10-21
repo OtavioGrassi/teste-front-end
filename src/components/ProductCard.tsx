@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
 
-function ProductCard({ produto }) {
+interface Produto {
+  photo: string;
+  productName: string;
+  price: number;
+}
+
+interface ProductCardProps {
+  produto: Produto;
+}
+
+function ProductCard({ produto }: ProductCardProps) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);

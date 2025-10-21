@@ -3,7 +3,17 @@ import ProductCard from './ProductCard';
 import Left from '../assets/Left.png';
 import Right from '../assets/Right.png';
 
-const ProductCarousel = ({ produtos }) => {
+interface Produto {
+  photo: string;
+  productName: string;
+  price: number;
+}
+
+interface ProductCarouselProps {
+  produtos: Produto[];
+}
+
+const ProductCarousel: React.FC<ProductCarouselProps> = ({ produtos }) => {
   const [startIndex, setStartIndex] = useState(0);
   const itemsPerPage = 4;
 

@@ -1,13 +1,18 @@
 import React from 'react'
 
-function Tags({text, tittleColor }) {
+interface TagsProps {
+    text: string;
+    tittleColor: boolean;
+}
+
+const Tags: React.FC<TagsProps> = ({ text, tittleColor }) => {
     return (
         <div className='tags'>
             <p className={`tag-tittle ${tittleColor ? 'tag-blue' : ''}`}>
                 {text}
             </p>
-        </div> 
-  )
+        </div>
+    )
 }
 
 export default Tags

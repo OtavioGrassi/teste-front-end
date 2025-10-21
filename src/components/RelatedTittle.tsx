@@ -1,6 +1,11 @@
 import React from 'react'
 
-const RelatedTittle = ({hidden}) => {
+
+interface RelatedTittleProps {
+    hidden: boolean;
+}
+
+const RelatedTittle: React.FC<RelatedTittleProps> = ({ hidden }) => {
     return (
         <section className='related-wrapper'>
             <article className='related-products'>

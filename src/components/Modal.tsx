@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import '../styles/Modal.scss';
 import ReactDOM from 'react-dom';
 
-const Modal = ({ isOpen, onClose, children }) => {
-    if (!isOpen) return null;
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: ReactNode;
+}
+
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+  if (!isOpen) return null;
 
     return ReactDOM.createPortal(
         <section className="modal-overlay" onClick={onClose}>
